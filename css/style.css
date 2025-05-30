@@ -1,0 +1,532 @@
+@font-face {
+  font-family: 'ppwoodland-bold'; /* Elige un nombre para usar en tu CSS */
+  src: url('../fonts/TuFuente-Regular.woff2') format('woff2'), /* Ruta relativa correcta */
+       url('../fonts/ppwoodland-bold.woff') format('woff'),
+       url('../fonts/TuFuente-Regular.otf') format('opentype'); /* OTF como último recurso */
+  font-weight: normal; /* o el peso correspondiente: 400, 700, etc. */
+  font-style: normal;  /* o italic, si es una variante itálica */
+}
+
+@font-face {
+  font-family: 'ShineProReg'; /* Elige un nombre para usar en tu CSS */
+  src: url('../fonts/TuFuente-Regular.woff2') format('woff2'), /* Ruta relativa correcta */
+       url('../fonts/ShineProReg.woff') format('woff'),
+       url('../fonts/TuFuente-Regular.otf') format('opentype'); /* OTF como último recurso */
+  font-weight: normal; /* o el peso correspondiente: 400, 700, etc. */
+  font-style: normal;  /* o italic, si es una variante itálica */
+}
+
+@font-face {
+  font-family: 'ShineProRegBold'; /* Elige un nombre para usar en tu CSS */
+  src: url('../fonts/TuFuente-Regular.woff2') format('woff2'), /* Ruta relativa correcta */
+       url('../fonts/ShineProBold.woff') format('woff'),
+       url('../fonts/TuFuente-Regular.otf') format('opentype'); /* OTF como último recurso */
+  font-weight: bold; /* o el peso correspondiente: 400, 700, etc. */
+  font-style: normal;  /* o italic, si es una variante itálica */
+}
+
+/* Reset básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #e0e0e0; /* Color de texto principal claro */
+    background-color: #1a1a1a; /* Fondo oscuro principal */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+	font-family: ppwoodland-bold;
+    color: #ffffff; /* Títulos en blanco */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2em;
+    border-bottom: 1px solid #444; /* Línea sutil bajo títulos de sección */
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+p {
+	font-family: ShineProReg;
+    margin-bottom: 15px;
+}
+
+li {
+	font-family: ShineProReg;
+	
+}
+
+a {
+    color: #f39c12; /* Color de acento naranja/dorado */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header */
+header {
+    background-color: #111; /* Fondo del header ligeramente más oscuro */
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #ccc;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.search-icon svg {
+    stroke: #ccc;
+    cursor: pointer;
+    transition: stroke 0.3s ease;
+}
+.search-icon svg:hover {
+    stroke: #f39c12;
+}
+
+
+/* Hero Section */
+.hero {
+    /* Asegúrate que la ruta a tu imagen sea correcta aquí */
+    background: url('../img/hero-background-texture.webp') no-repeat center center/cover;
+    padding: 60px 0;
+    text-align: center; /* Esto es para el contenido, no afecta mucho al background en sí */
+    border-bottom: 2px solid #000; /* Opcional, para separar de la siguiente sección */
+    position: relative; /* Añadido para mejor control si se necesita overlay */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-image-container {
+    flex: 1;
+    position: relative; /* Para el tag "NUEVO" */
+}
+
+.nuevo-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f39c12;
+    color: #111;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.hero-image-container img {
+    max-width: 450px; /* Ajusta según tu imagen */
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 3.5em; /* Más grande para el producto principal */
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #ddd;
+    margin-bottom: 0;
+}
+
+/* Product Details Section */
+.product-details {
+    padding: 50px 0;
+    background-color: #161616; /* Un poco más claro que el fondo general */
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Columna más ancha para beneficios */
+    gap: 40px;
+}
+
+.nutritional-info {
+    background-color: #111; /* Fondo de la tabla oscuro */
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.nutritional-info h2 {
+    border-bottom-color: #555;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.portion-info {
+    text-align: center;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: #bbb;
+}
+
+.nutritional-info table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.nutritional-info th,
+.nutritional-info td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.nutritional-info th {
+    font-weight: bold;
+    color: #ddd;
+}
+.nutritional-info td:nth-child(2),
+.nutritional-info td:nth-child(3) {
+    text-align: right;
+}
+
+.reference-intake {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.benefits-formats-prep h2 {
+    font-size: 1.5em;
+}
+.benefits-formats-prep h3 {
+    font-size: 1.2em;
+    color: #f39c12;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.benefits-formats-prep ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.benefits-formats-prep ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.benefits-formats-prep ul li::before {
+    content: '✓'; /* O un icono de check */
+    color: #f39c12;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.formats-container {
+    margin-bottom: 20px;
+}
+
+.format-button {
+    background-color: #333;
+    color: #ddd;
+    border: 1px solid #555;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.format-button.active,
+.format-button:hover {
+    background-color: #f39c12;
+    color: #111;
+    border-color: #f39c12;
+}
+
+.prep-method p {
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+/* Related Recipes & Other Products Sections */
+.related-recipes, .other-products {
+    padding: 50px 0;
+	/* Añade o modifica la siguiente línea para el fondo */
+    background: url('../img/hero-background-texture.webp') no-repeat center center/cover; /* Ajusta el nombre si es diferente */
+    position: relative; /* Buena práctica para fondos, por si añades overlays */
+}
+
+.recipes-grid, .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card, .product-card {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.recipe-card:hover, .product-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card img, .product-card img {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Para que las imágenes se ajusten bien */
+}
+
+.recipe-info, .product-card h3, .product-card .product-tag, .product-card .product-weight {
+    padding: 15px;
+}
+.product-card h3{
+    padding-bottom: 0;
+}
+.product-card .product-tag, .product-card .product-weight {
+    padding-top: 0;
+    padding-bottom: 5px;
+    font-size: 0.8em;
+    color: #aaa;
+}
+.product-card .product-tag {
+    float: left;
+}
+.product-card .product-weight {
+    float: right;
+}
+.product-card::after { /* Clearfix para los floats */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.recipe-info {
+    flex-grow: 1; /* Para que el texto ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-time {
+    font-size: 0.8em;
+    color: #aaa;
+    margin-bottom: 5px;
+    display: block;
+}
+.recipe-info h3, .product-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    flex-grow: 1; /* Para empujar la flecha hacia abajo si el título es corto */
+}
+
+.arrow-link {
+    display: block;
+    text-align: right;
+    font-size: 1.5em;
+    color: #f39c12;
+    font-weight: bold;
+    margin-top: auto; /* Empuja la flecha al final del card */
+}
+.arrow-link:hover {
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #aaa;
+    padding: 40px 0 20px;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.footer-logo-container .logo{
+    max-height: 60px;
+    margin-bottom: 15px;
+}
+
+.footer-links h4, .footer-contact h4, .footer-info h4 {
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.footer-links ul, .footer-info ul {
+    list-style: none;
+}
+
+.footer-links ul li a, .footer-info ul li a {
+    color: #aaa;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover, .footer-info ul li a:hover {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.footer-contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.footer-contact p svg {
+    margin-right: 8px;
+    stroke: #f39c12; /* Iconos de contacto en color acento */
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+}
+
+.social-icons svg {
+    width: 20px;
+    height: 20px;
+    stroke: #aaa;
+    transition: stroke 0.3s ease;
+}
+
+.social-icons a:hover svg {
+    stroke: #f39c12;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 0.8em;
+}
+.copyright p {
+    margin-bottom: 5px;
+    color: #777;
+}
+
+/* Responsive Adjustments (Básico) */
+@media (max-width: 992px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .hero-text h1 {
+        font-size: 2.8em;
+    }
+    .product-details-grid {
+        grid-template-columns: 1fr; /* Stack en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+    header nav {
+        margin-top: 15px;
+    }
+    header nav ul li {
+        margin: 0 10px;
+    }
+    .hero-text h1 {
+        font-size: 2.2em;
+    }
+    .hero-text p {
+        font-size: 1em;
+    }
+    .recipes-grid, .products-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+    }
+    .footer-grid {
+        text-align: center; /* Centrar contenido del footer en móviles */
+    }
+    .footer-grid > div {
+        margin-bottom: 20px;
+    }
+    .social-icons {
+        text-align: center;
+    }
+}
